@@ -1,57 +1,82 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Permission Builder</title>
+    <title>Permission Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Alata&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="ownerPermission">
-        <div>
+    <h1>Linux Permission Generator</h1>
+    <div id="permissionWrapper">
+        <div id="ownerPermission">
             <h3>Owner Permission</h3>
             <form>
-                <input type="checkbox" name="read" value="4">
-                <label>Read</label>
-                <input type="checkbox" name="write" value="2">
-                <label>Write</label>
-                <input type="checkbox" name="execute" value="1">
-                <label>Execute</label>
+                <input type="checkbox" id="read" name="read" value="4">
+                <label for="read">Read</label>
+                <br>
+                <input type="checkbox" id="write" name="write" value="2">
+                <label for="write">Write</label>
+                <br>
+                <input type="checkbox" id="execute" name="execute" value="1">
+                <label for="execute">Execute</label>
             </form>
+            <br>
+            <label>Permission:</label>
+            <label id="ownerPermissionText">0</label>
         </div>
-        <label>Permission:</label>
-        <label id="ownerPermissionText">0</label>
-    </div>
-    <div id="groupPermission">
-        <div>
-            <h3>Group Permission</h3>
-            <form>
-                <input type="checkbox" name="read" value="4">
-                <label>Read</label>
-                <input type="checkbox" name="write" value="2">
-                <label>Write</label>
-                <input type="checkbox" name="execute" value="1">
-                <label>Execute</label>
-            </form>
+        <div id="groupPermission">
+            <div>
+                <h3>Group Permission</h3>
+                <form>
+                    <input type="checkbox" id="read1" name="read" value="4">
+                    <label for="read1">Read</label>
+                    <br>
+                    <input type="checkbox" id="write1" name="write" value="2">
+                    <label for="write1">Write</label>
+                    <br>
+                    <input type="checkbox" id="execute1" name="execute" value="1">
+                    <label for="execute1">Execute</label>
+                </form>
+            </div>
+            <br>
+            <label>Permission:</label>
+            <label id="groupPermissionText">0</label>
         </div>
-        <label>Permission:</label>
-        <label id="groupPermissionText">0</label>
-    </div>
-    <div id="otherPermission">
-        <div>
-            <h3>Other Permission</h3>
-            <form>
-                <input type="checkbox" name="read" value="4">
-                <label>Read</label>
-                <input type="checkbox" name="write" value="2">
-                <label>Write</label>
-                <input type="checkbox" name="execute" value="1">
-                <label>Execute</label>
-            </form>
+        <div id="otherPermission">
+            <div>
+                <h3>Other Permission</h3>
+                <form>
+                    <input type="checkbox" id="read2" name="read" value="4">
+                    <label for="read2">Read</label>
+                    <br>
+                    <input type="checkbox" id="write2" name="write" value="2">
+                    <label for="write2">Write</label>
+                    <br>
+                    <input type="checkbox" id="execute2" name="execute" value="1">
+                    <label for="execute2">Execute</label>
+                </form>
+            </div>
+            <br>
+            <label>Permission:</label>
+            <label id="otherPermissionText">0</label>
         </div>
-        <label>Permission:</label>
-        <label id="otherPermissionText">0</label>
+        <div id="break"></div>
+        <div id="result">
+            <div id="resultWrapper">
+                <div id="resultHeader">
+                    <h4>Command</h4>
+                </div>
+                <div id="resultBody">
+                    <span id="resultText"></span>
+                </div>
+                <button onclick="copyToClipboard()">Copy</button>
+            </div>
+        </div>
     </div>
-    <label>Result:</label>
-    <label id="result"></label>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>

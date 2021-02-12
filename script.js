@@ -31,7 +31,22 @@ $('#otherPermission input[type=checkbox]').change(function() {
     $("#otherPermissionText").html(otherPermissionCount);
 });
 
-
 $('input[type=checkbox]').change(function() {
-    $("#result").html(ownerPermissionCount.toString() + groupPermissionCount.toString() + otherPermissionCount.toString());
+    refreshCmds();
 });
+
+let refreshCmds = () => {
+    $("#resultText").html("chmod " + ownerPermissionCount.toString() + groupPermissionCount.toString() + otherPermissionCount.toString() + " file");
+}
+
+refreshCmds();
+
+let copyToClipboard = () => {
+    var copyText = document.getElementById("resultText");
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    textArea.remove();
+}
