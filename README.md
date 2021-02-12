@@ -1,4 +1,4 @@
-# Linux-Permission-Builder
+# Linux-Permission-Generator
 
 Webpage to generate linux file permissions.  
 
